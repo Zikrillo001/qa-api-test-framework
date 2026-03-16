@@ -10,13 +10,15 @@ class APIAssertions:
     @staticmethod
     def assert_response_time_less_than(response, max_ms: int) -> None:
         actual_ms = int(response.elapsed.total_seconds() * 1000)
-        assert actual_ms < max_ms, (
-            f"Expected response time < {max_ms} ms, but got {actual_ms} ms"
-        )
+        assert (
+            actual_ms < max_ms
+        ), f"Expected response time < {max_ms} ms, but got {actual_ms} ms"
 
     @staticmethod
     def assert_json_has_key(json_data: dict, key: str) -> None:
-        assert key in json_data, f"Expected key '{key}' not found in response: {json_data}"
+        assert (
+            key in json_data
+        ), f"Expected key '{key}' not found in response: {json_data}"
 
     @staticmethod
     def assert_list_not_empty(items: list) -> None:
@@ -25,9 +27,9 @@ class APIAssertions:
 
     @staticmethod
     def assert_equal(actual, expected, field_name: str = "value") -> None:
-        assert actual == expected, (
-            f"Expected {field_name} to be {expected}, but got {actual}"
-        )
+        assert (
+            actual == expected
+        ), f"Expected {field_name} to be {expected}, but got {actual}"
 
     @staticmethod
     def assert_type(value, expected_type, field_name: str = "value") -> None:
@@ -38,13 +40,15 @@ class APIAssertions:
 
     @staticmethod
     def assert_greater_than(actual, threshold, field_name: str = "value") -> None:
-        assert actual > threshold, (
-            f"Expected {field_name} to be > {threshold}, but got {actual}"
-        )
+        assert (
+            actual > threshold
+        ), f"Expected {field_name} to be > {threshold}, but got {actual}"
 
     @staticmethod
     def assert_contains_key_value(json_data: dict, key: str, expected_value) -> None:
-        assert key in json_data, f"Expected key '{key}' not found in response: {json_data}"
-        assert json_data[key] == expected_value, (
-            f"Expected '{key}' to be '{expected_value}', but got '{json_data[key]}'"
-        )
+        assert (
+            key in json_data
+        ), f"Expected key '{key}' not found in response: {json_data}"
+        assert (
+            json_data[key] == expected_value
+        ), f"Expected '{key}' to be '{expected_value}', but got '{json_data[key]}'"

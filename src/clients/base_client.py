@@ -4,7 +4,9 @@ from src.utils.logger import get_logger
 
 
 class BaseClient:
-    def __init__(self, base_url: str, headers: dict | None = None, timeout: int = 10) -> None:
+    def __init__(
+        self, base_url: str, headers: dict | None = None, timeout: int = 10
+    ) -> None:
         self.base_url = base_url.rstrip("/")
         self.headers = headers or {}
         self.timeout = timeout

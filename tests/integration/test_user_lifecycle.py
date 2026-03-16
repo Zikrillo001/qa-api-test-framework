@@ -26,9 +26,7 @@ def test_user_lifecycle_flow(users_client, payload_builder):
     APIAssertions.assert_status_code(patch_response, 200)
 
     patched_body = patch_response.json()
-    APIAssertions.assert_contains_key_value(
-        patched_body, "id", existing_user_id
-    )
+    APIAssertions.assert_contains_key_value(patched_body, "id", existing_user_id)
     APIAssertions.assert_contains_key_value(
         patched_body, "firstName", patch_payload["firstName"]
     )

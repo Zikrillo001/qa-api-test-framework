@@ -8,7 +8,9 @@ class ConfigReader:
     def __init__(self) -> None:
         self.env = os.getenv("ENV", "dev")
         self.project_root = Path(__file__).resolve().parents[2]
-        self.config_path = self.project_root / "config" / "environments" / f"{self.env}.yaml"
+        self.config_path = (
+            self.project_root / "config" / "environments" / f"{self.env}.yaml"
+        )
         self.config_data = self._load_config()
 
     def _load_config(self) -> dict:

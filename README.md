@@ -1,3 +1,6 @@
+![Python](https://img.shields.io/badge/python-3.11-blue)
+![pytest](https://img.shields.io/badge/pytest-testing-green)
+![CI](https://github.com/YOUR_USERNAME/qa-api-test-framework/actions/workflows/api-tests.yml/badge.svg)
 # QA API Test Framework
 
 Senior-style API automation testing framework built with Python, Pytest, and Requests.

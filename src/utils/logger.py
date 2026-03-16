@@ -14,7 +14,9 @@ def get_logger(name: str) -> logging.Logger:
             "%(asctime)s | %(levelname)s | %(name)s | %(message)s"
         )
 
-        file_handler = logging.FileHandler(logs_dir / "test_execution.log", encoding="utf-8")
+        file_handler = logging.FileHandler(
+            logs_dir / "test_execution.log", encoding="utf-8"
+        )
         file_handler.setFormatter(formatter)
 
         console_handler = logging.StreamHandler()
