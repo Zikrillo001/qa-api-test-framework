@@ -1,8 +1,10 @@
 import pytest
 
+from src.clients.auth_client import AuthClient
 from src.clients.products_client import ProductsClient
 from src.clients.users_client import UsersClient
 from src.utils.config_reader import ConfigReader
+from src.utils.payload_builder import PayloadBuilder
 
 
 @pytest.fixture(scope="session")
@@ -33,3 +35,13 @@ def products_client(base_url, headers, timeout):
 @pytest.fixture(scope="session")
 def users_client(base_url, headers, timeout):
     return UsersClient(base_url=base_url, headers=headers, timeout=timeout)
+
+
+@pytest.fixture(scope="session")
+def auth_client(base_url, headers, timeout):
+    return AuthClient(base_url=base_url, headers=headers, timeout=timeout)
+
+
+@pytest.fixture
+def payload_builder():
+    return PayloadBuilder()
