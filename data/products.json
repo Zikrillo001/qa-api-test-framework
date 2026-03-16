@@ -1,0 +1,6 @@
+{
+  "valid_product_ids": [1, 2, 3, 10, 25],
+  "invalid_product_ids": [0, -1, 999999],
+  "search_queries": ["phone", "laptop", "oil", "bag"],
+  "empty_like_queries": ["zzzzunlikelyitem123", "___nomatch___"]
+}

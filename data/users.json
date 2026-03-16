@@ -1,0 +1,4 @@
+{
+  "valid_user_ids": [1, 2, 3, 5, 10],
+  "invalid_user_ids": [0, -1, 999999]
+}

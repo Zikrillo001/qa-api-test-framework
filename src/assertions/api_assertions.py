@@ -22,3 +22,29 @@ class APIAssertions:
     def assert_list_not_empty(items: list) -> None:
         assert isinstance(items, list), f"Expected list, but got {type(items).__name__}"
         assert len(items) > 0, "Expected non-empty list, but list is empty"
+
+    @staticmethod
+    def assert_equal(actual, expected, field_name: str = "value") -> None:
+        assert actual == expected, (
+            f"Expected {field_name} to be {expected}, but got {actual}"
+        )
+
+    @staticmethod
+    def assert_type(value, expected_type, field_name: str = "value") -> None:
+        assert isinstance(value, expected_type), (
+            f"Expected {field_name} to be of type {expected_type.__name__}, "
+            f"but got {type(value).__name__}"
+        )
+
+    @staticmethod
+    def assert_greater_than(actual, threshold, field_name: str = "value") -> None:
+        assert actual > threshold, (
+            f"Expected {field_name} to be > {threshold}, but got {actual}"
+        )
+
+    @staticmethod
+    def assert_contains_key_value(json_data: dict, key: str, expected_value) -> None:
+        assert key in json_data, f"Expected key '{key}' not found in response: {json_data}"
+        assert json_data[key] == expected_value, (
+            f"Expected '{key}' to be '{expected_value}', but got '{json_data[key]}'"
+        )
