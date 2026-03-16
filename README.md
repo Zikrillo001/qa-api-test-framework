@@ -75,3 +75,11 @@ mkdir tests\smoke
 mkdir tests\regression
 mkdir tests\integration
 
+## Project Structure
+
+- `src/clients` — API client layer
+- `src/assertions` — reusable assertion methods
+- `src/utils` — logger and config reader
+- `tests/smoke` — critical smoke coverage
+- `tests/regression` — broader functional checks
+- `tests/integration` — end-to-end workflow tests
