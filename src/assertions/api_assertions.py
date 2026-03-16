@@ -33,10 +33,17 @@ class APIAssertions:
 
     @staticmethod
     def assert_type(value, expected_type, field_name: str = "value") -> None:
-        assert isinstance(value, expected_type), (
-            f"Expected {field_name} to be of type {expected_type.__name__}, "
-            f"but got {type(value).__name__}"
-        )
+        if isinstance(expected_type, tuple):
+            expected_names = ", ".join(t.__name__ for t in expected_type)
+            assert isinstance(value, expected_type), (
+                f"Expected {field_name} to be one of ({expected_names}), "
+                f"but got {type(value).__name__}"
+            )
+        else:
+            assert isinstance(value, expected_type), (
+                f"Expected {field_name} to be of type {expected_type.__name__}, "
+                f"but got {type(value).__name__}"
+            )
 
     @staticmethod
     def assert_greater_than(actual, threshold, field_name: str = "value") -> None:

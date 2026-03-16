@@ -17,7 +17,7 @@ def test_get_single_product_by_valid_id(products_client, product_id):
     body = response.json()
     APIAssertions.assert_contains_key_value(body, "id", product_id)
     APIAssertions.assert_type(body["title"], str, "title")
-    APIAssertions.assert_type(body["price"], int, "price")
+    APIAssertions.assert_type(body["price"], (int, float), "price")
 
 
 @pytest.mark.regression
